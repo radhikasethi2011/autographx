@@ -1,0 +1,96 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "meghanabhange",
+      "name": "meghanabhange",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/34004739?v=4",
+      "profile": "https://github.com/meghanabhange",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "radhikasethi2011",
+      "name": "Radhika",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/44310177?v=4",
+      "profile": "https://github.com/radhikasethi2011",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "TriptiChanda",
+      "name": "TriptiChanda",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/29086785?v=4",
+      "profile": "https://github.com/TriptiChanda",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "anshupshines",
+      "name": "anshupshines",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31989646?v=4",
+      "profile": "https://github.com/anshupshines",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "shriya1726",
+      "name": "shriya1726",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/34515028?v=4",
+      "profile": "https://github.com/shriya1726",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "Alankriti3107",
+      "name": "Alankriti3107",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/66322193?v=4",
+      "profile": "https://github.com/Alankriti3107",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "Kajal-Makhija",
+      "name": "Kajal-Makhija",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/66322882?v=4",
+      "profile": "https://github.com/Kajal-Makhija",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "kanchanrw1",
+      "name": "kanchanrw1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/66323055?v=4",
+      "profile": "https://github.com/kanchanrw1",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "tanvipardhi",
+      "name": "tanvipardhi",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/65395623?v=4",
+      "profile": "https://github.com/tanvipardhi",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "autographx",
+  "projectOwner": "meghanabhange",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
