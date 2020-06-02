@@ -19,10 +19,10 @@ Quote : Your Yearbook quote
 
 # How to contribute 🤝
 - Pick up any issue you think you can help with from things to do section (check if it exists in github issues tab, if it doesn't then create one)
-- Send message on whatsapp group to check if someone's working on it. 
+- Send a message on whatsapp group to check if someone's working on it. 
 - If no one's working on it, assign the issue to yourself
 - Create a branch or fork with the issue name
-- Once solved, raise a PR to dev branch. 
+- Once solved, raise a PR to the dev branch. 
 
 # Things to do ✔️
 
@@ -81,3 +81,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
