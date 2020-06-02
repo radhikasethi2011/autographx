@@ -1,6 +1,6 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Autographx - Automated YearBook Generator
@@ -68,6 +68,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/anshupshines"><img src="https://avatars1.githubusercontent.com/u/31989646?v=4" width="100px;" alt=""/><br /><sub><b>anshupshines</b></sub></a><br /><a href="#content-anshupshines" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/shriya1726"><img src="https://avatars3.githubusercontent.com/u/34515028?v=4" width="100px;" alt=""/><br /><sub><b>shriya1726</b></sub></a><br /><a href="#content-shriya1726" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/Alankriti3107"><img src="https://avatars3.githubusercontent.com/u/66322193?v=4" width="100px;" alt=""/><br /><sub><b>Alankriti3107</b></sub></a><br /><a href="#content-Alankriti3107" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/Kajal-Makhija"><img src="https://avatars1.githubusercontent.com/u/66322882?v=4" width="100px;" alt=""/><br /><sub><b>Kajal-Makhija</b></sub></a><br /><a href="https://github.com/meghanabhange/autographx/commits?author=Kajal-Makhija" title="Documentation">📖</a></td>
   </tr>
 </table>
 
