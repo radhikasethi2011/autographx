@@ -1,6 +1,6 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Autographx - Automated YearBook Generator
@@ -65,6 +65,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/meghanabhange"><img src="https://avatars1.githubusercontent.com/u/34004739?v=4" width="100px;" alt=""/><br /><sub><b>meghanabhange</b></sub></a><br /><a href="#ideas-meghanabhange" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/radhikasethi2011"><img src="https://avatars1.githubusercontent.com/u/44310177?v=4" width="100px;" alt=""/><br /><sub><b>Radhika</b></sub></a><br /><a href="#content-radhikasethi2011" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/TriptiChanda"><img src="https://avatars2.githubusercontent.com/u/29086785?v=4" width="100px;" alt=""/><br /><sub><b>TriptiChanda</b></sub></a><br /><a href="#content-TriptiChanda" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/anshupshines"><img src="https://avatars1.githubusercontent.com/u/31989646?v=4" width="100px;" alt=""/><br /><sub><b>anshupshines</b></sub></a><br /><a href="#content-anshupshines" title="Content">🖋</a></td>
   </tr>
 </table>
 
