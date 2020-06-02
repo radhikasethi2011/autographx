@@ -17,8 +17,16 @@ def autographs_topdf(autographs: dict, name: str) -> None:
         autographs {dict} -- Dict of name-autograph mapping
         name {str} -- name of the person who these autographs are for
     """
-    img = mpimg.imread("./auto.png")
+    img = mpimg.imread("./cover.png")
     with PdfPages(f"{name}.pdf") as pdf:
+        ax = plt.axes()
+        ax.imshow(img)
+        ax.patch.set_facecolor('black')
+        plt.axis("off")
+        pdf.savefig()
+        plt.close()
+
+        img = mpimg.imread("./auto.png")
         for key, value in autographs.items():
             # plt.figure(figsize=(11.69,8.27))
             plt.subplot(2, 1, 1)
