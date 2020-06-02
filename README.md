@@ -69,7 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
  all-contributors/add-shriya1726
     <td align="center"><a href="https://github.com/shriya1726"><img src="https://avatars3.githubusercontent.com/u/34515028?v=4" width="100px;" alt=""/><br /><sub><b>shriya1726</b></sub></a><br /><a href="#content-shriya1726" title="Content">🖋</a></td>
 
-    <td align="center"><a href="https://github.com/anshupshines"><img src="https://avatars1.githubusercontent.com/u/31989646?v=4" width="100px;" alt=""/><br /><sub><b>anshupshines</b></sub></a><br /><a href="#content-anshupshines" title="Content">🖋</a></td>
+  
  master
  master
  master
