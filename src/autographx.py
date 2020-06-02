@@ -12,6 +12,14 @@ autographs = {
 
 
 def get_autographs(pathtofile):
+    """Takes input to the yearbook dir and return a dictionary of all the autographs
+
+    Arguments:
+        pathtofile {[type]} -- path to the yearbook dir
+
+    Returns:
+        [dict] -- {name : {nameofautographer : autograph}
+    """
 
     autos = {}
 
