@@ -1,6 +1,6 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # Autographx - Automated YearBook Generator
@@ -72,6 +72,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/kanchanrw1"><img src="https://avatars2.githubusercontent.com/u/66323055?v=4" width="100px;" alt=""/><br /><sub><b>kanchanrw1</b></sub></a><br /><a href="#content-kanchanrw1" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/tanvipardhi"><img src="https://avatars3.githubusercontent.com/u/65395623?v=4" width="100px;" alt=""/><br /><sub><b>tanvipardhi</b></sub></a><br /><a href="#content-tanvipardhi" title="Content">🖋</a></td>
   </tr>
 </table>
 
