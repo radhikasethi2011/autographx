@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "meghanabhange",
+      "name": "meghanabhange",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/34004739?v=4",
+      "profile": "https://github.com/meghanabhange",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "autographx",
+  "projectOwner": "meghanabhange",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
