@@ -69,42 +69,44 @@ def autographs_topdf(autographs: dict, name: str) -> None:
         plt.axis("off")
         pdf.savefig()
         plt.close()
+        print_autographs(autographs, pdf)
 
-        img = mpimg.imread("./auto.png")
-        for key, value in autographs.items():
-            plt.figure(figsize=(10.8, 19.2))
-            plt.subplot(2, 1, 1)
-            plt.imshow(img)
-            plt.axis("off")
+def print_autographs(autographs, pdf):
+    img = mpimg.imread("./auto.png")
+    for key, value in autographs.items():
+        plt.figure(figsize=(10.8, 19.2))
+        plt.subplot(2, 1, 1)
+        plt.imshow(img)
+        plt.axis("off")
 
-            plt.subplot(2, 1, 2)
-            plt.text(
-                0.5,
-                0.5,
-                value,
-                horizontalalignment="center",
-                verticalalignment="center",
-                fontdict={
-                    "family": "serif",
-                    # "color": "#f0bc81",
-                    "weight": "normal",
-                    "size": 20,
-                },
-            )
-            plt.title(
-                f"Autograph by {key}",
-                fontdict={
-                    "family": "serif",
-                    "color": "#f0bc81",
-                    "weight": "normal",
-                    "size": 16,
-                },
-            )
-            plt.axis("off")
+        plt.subplot(2, 1, 2)
+        plt.text(
+            0.5,
+            0.5,
+            value,
+            horizontalalignment="center",
+            verticalalignment="center",
+            fontdict={
+                "family": "serif",
+                # "color": "#f0bc81",
+                "weight": "normal",
+                "size": 20,
+            },
+        )
+        plt.title(
+            f"Autograph by {key}",
+            fontdict={
+                "family": "serif",
+                "color": "#f0bc81",
+                "weight": "normal",
+                "size": 16,
+            },
+        )
+        plt.axis("off")
 
-            # plt.tight_layout()
-            pdf.savefig()
-            plt.close()
+        # plt.tight_layout()
+        pdf.savefig()
+        plt.close()
 
 
 autos = get_autographs("YearbookENTC")
