@@ -29,29 +29,25 @@ def get_autographs(pathtofile):
     for x in path.iterdir():
         if x.is_dir():
             file_list.append(x)
-    print(f"Found files {len(file_list)} -- {file_list}")
+    # print(f"Found files {len(file_list)} -- {file_list}")
 
     for f in file_list:
         name = str(f)[len(pathtofile) + 1 :]
         autos[name] = {}
         for x in f.iterdir():
-            if str(x) == f"{pathtofile}/{name}/{name}.txt":
-                info_file = x
-                f = open(info_file, "r").readlines()
-                info_name = f[0]
-                info_quote = f[1]
-            elif (
+            if not (str(x) == f"{pathtofile}/{name}/{name}.txt") and not (
                 str(x) == f"{pathtofile}/{name}/{name}.jpg"
                 or str(x) == f"{pathtofile}/{name}/{name}.png"
             ):
-                info_img = x
-            else:
-                l = len(pathtofile) + len(name) + 12
-                f = open(x, "r").read().replace("\n", " ").split()
-                s = []
-                for i in range(0, len(f), 20):
-                    s.append(" ".join(f[i : i + 20]))
-                output = "\n".join(s)
+                try:
+                    l = len(pathtofile) + len(name) + 12
+                    f = open(x, "r").read().replace("\n", " ").split()
+                    s = []
+                    for i in range(0, len(f), 10):
+                        s.append(" ".join(f[i : i + 10]))
+                    output = "\n".join(s)
+                except:
+                    output = "Input Error"
                 autos[name][str(x)[l:-4]] = output
 
     return autos
@@ -66,7 +62,7 @@ def autographs_topdf(autographs: dict, name: str) -> None:
     """
     img = mpimg.imread("./cover.png")
     with PdfPages(f"{name}.pdf") as pdf:
-        plt.figure(figsize=(11.69, 8.27))
+        plt.figure(figsize=(10.8, 19.2))
         ax = plt.axes()
         ax.imshow(img)
         ax.patch.set_facecolor("black")
@@ -76,7 +72,7 @@ def autographs_topdf(autographs: dict, name: str) -> None:
 
         img = mpimg.imread("./auto.png")
         for key, value in autographs.items():
-            plt.figure(figsize=(11.69, 8.27))
+            plt.figure(figsize=(10.8, 19.2))
             plt.subplot(2, 1, 1)
             plt.imshow(img)
             plt.axis("off")
@@ -88,6 +84,12 @@ def autographs_topdf(autographs: dict, name: str) -> None:
                 value,
                 horizontalalignment="center",
                 verticalalignment="center",
+                fontdict={
+                    "family": "serif",
+                    # "color": "#f0bc81",
+                    "weight": "normal",
+                    "size": 20,
+                },
             )
             plt.title(
                 f"Autograph by {key}",
