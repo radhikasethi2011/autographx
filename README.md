@@ -7,6 +7,9 @@
 
 ![img](https://i.ibb.co/1JW1s9H/autographx-2.png)
 # Collecting data from students 📚
+
+## [Version 1 of Yearbooks](https://drive.google.com/drive/folders/1CRlQynZkcwm0FIGP911KRLKz4HxuCQ-G?usp=sharing)
+
 As this year and your degree comes to an end, let's reminisce our times together, so let's put it all in a yearbook!
 
 1. Create Google Drive folder, in that, please create a folder with  <namesurname> and in the folder add a text file <namesurname.txt> which should contain following four lines
