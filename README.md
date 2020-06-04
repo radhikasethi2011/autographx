@@ -2,10 +2,13 @@
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  [![ForTheBadge built-by-developers](http://ForTheBadge.com/images/badges/built-by-developers.svg)](https://GitHub.com/meghanabhange/)
+</br>
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 # Autographx - Automated YearBook Generator
 
 ![img](https://i.ibb.co/1JW1s9H/autographx-2.png)
+
 # Collecting data from students 📚
 
 ## [Version 1 of Yearbooks](https://drive.google.com/drive/folders/1CRlQynZkcwm0FIGP911KRLKz4HxuCQ-G?usp=sharing)
@@ -20,7 +23,7 @@ Quote : Your Yearbook quote
 4. in the text file, write whatever you want to write for your friend! 
 5. If you want to write something for the whole class, add another <autogtaph_yourname.txt> in a <batch_year> folder, substituting the year with the current year. 
 
-# How to contribute 🤝
+# How to contribute 🤝 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 - Pick up any issue you think you can help with from things to do section (check if it exists in github issues tab, if it doesn't then create one)
 - Send a message on whatsapp group to check if someone's working on it. 
 - If no one's working on it, assign the issue to yourself
@@ -28,7 +31,7 @@ Quote : Your Yearbook quote
 - Once solved, raise a PR to the dev branch. 
 
 
-## Contributors ✨
+## Contributors ✨ 
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -38,7 +41,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/meghanabhange"><img src="https://avatars1.githubusercontent.com/u/34004739?v=4" width="100px;" alt=""/><br /><sub><b>meghanabhange</b></sub></a><br /><a href="#ideas-meghanabhange" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/radhikasethi2011"><img src="https://avatars1.githubusercontent.com/u/44310177?v=4" width="100px;" alt=""/><br /><sub><b>Radhika</b></sub></a><br /><a href="#content-radhikasethi2011" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/radhikasethi2011"><img src="https://avatars1.githubusercontent.com/u/44310177?v=4" width="100px;" alt=""/><br /><sub><b>Radhika</b></sub></a><br /><a href="#content-radhikasethi2011" title="Content">🖋</a> <a href="https://github.com/meghanabhange/autographx/commits?author=radhikasethi2011" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/TriptiChanda"><img src="https://avatars2.githubusercontent.com/u/29086785?v=4" width="100px;" alt=""/><br /><sub><b>TriptiChanda</b></sub></a><br /><a href="#content-TriptiChanda" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/anshupshines"><img src="https://avatars1.githubusercontent.com/u/31989646?v=4" width="100px;" alt=""/><br /><sub><b>anshupshines</b></sub></a><br /><a href="#content-anshupshines" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/shriya1726"><img src="https://avatars3.githubusercontent.com/u/34515028?v=4" width="100px;" alt=""/><br /><sub><b>shriya1726</b></sub></a><br /><a href="#content-shriya1726" title="Content">🖋</a></td>
@@ -56,4 +59,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+</br>
+This repository has been viewed by [![HitCount](http://hits.dwyl.com/meghanabhange/autographx.svg)](http://hits.dwyl.com/meghanabhange/autographx)!
 
