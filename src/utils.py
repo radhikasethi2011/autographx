@@ -6,4 +6,3 @@ def split_paragraph(para, n):
     res = para.split()
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
-  
