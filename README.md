@@ -1,9 +1,11 @@
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
-
 # Autographx - Automated YearBook Generator
 
 ![img](https://i.ibb.co/1JW1s9H/autographx-2.png)
 
+---
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+---
 # Collecting data from students 📚
 
 ## [Version 1 of Yearbooks](https://drive.google.com/drive/folders/1CRlQynZkcwm0FIGP911KRLKz4HxuCQ-G?usp=sharing)
