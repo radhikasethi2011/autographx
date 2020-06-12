@@ -38,10 +38,10 @@ def get_autos(df, filepath="YearbookENTC"):
                 df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
             )
             details["Quote"] = df.loc[name]["Quote for yearbook"]
-            # get_files_from_gdrive(
-            #     df.loc[name]["Year Book Image"],
-            #     f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
-            # )
+            get_files_from_gdrive(
+                df.loc[name]["Year Book Image"],
+                f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+            )
             details["Image"] = (
                 f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
