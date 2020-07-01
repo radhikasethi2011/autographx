@@ -3,18 +3,21 @@
 <html lang = "en"> 
 <head> 
     <meta charset="UTF-8">
-    <title>For loop in Flask</title> 
+    <title>AutographX - YearBook</title> 
     <!--add links to style sheets and bootstrap-->
     <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
 </head> 
 <body> 
-    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo">
+    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo"
+    
+    > <br>
   
 <ol> 
 <!-- For loop logic of jinja template -->
 {%for i in range(0, len)%} 
   
-    <img src = {{autos[i]["Image"][i]}} ><br>
+    <img src = "{{url_for('static',filename = autos[i]['Image'][0]) }}" height="250px"
+    width="250px"><br>
     {{autos[i]["Name"]}}<br>
     {{autos[i]["Quote"]}}</br>
     

@@ -32,8 +32,11 @@ def get_autos(df, filepath="YearbookENTC"):
 
     for f in file_list:
         details = {}
+        print("f",str(f))
+        print("filepath",len(str(filepath) ) + 1)
+        print("length of filepath",str(f)[len(str(filepath))])
         name = str(f)[len(str(filepath)) + 1 :]
-        not_filled = [] #not used 
+        print("name",name) 
         if name in list(df.index):
             details["Name"] = (
                 df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
@@ -41,14 +44,15 @@ def get_autos(df, filepath="YearbookENTC"):
             details["Quote"] = df.loc[name]["Quote for yearbook"]
             get_files_from_gdrive(
                 df.loc[name]["Year Book Image"],
-                f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+                f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
             details["Image"] = (
-                f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+                f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
             details["autographs"] = {}
         else:
             print(f"Something is wrong with {name}")
+            #details["Image"] = f"unknown.png",
             continue
         
 
@@ -138,7 +142,7 @@ def split_paragraph(para, n):
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
 
-#autos = get_autos("YearbookENTC")
+autos = get_autos("YearbookENTC")
 #print(autos)
 
 

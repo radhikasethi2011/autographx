@@ -4,8 +4,9 @@ __pycache__/
 *$py.class
 imgdata/
 YearbookENTC/
-
-
+src/static/*.jpg
+src/static/*.png
+src/static/*.jpeg
 # C extensions
 *.so
 
