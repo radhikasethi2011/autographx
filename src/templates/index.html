@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+  
+<html lang = "en"> 
+<head> 
+    <meta charset="UTF-8">
+    <title>For loop in Flask</title> 
+    <!--add links to style sheets and bootstrap-->
+    <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+</head> 
+<body> 
+    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo">
+  
+<ol> 
+<!-- For loop logic of jinja template -->
+{%for i in range(0, len)%} 
+  
+    <img src = {{autos[i]["Image"][i]}} ><br>
+    {{autos[i]["Name"]}}<br>
+    {{autos[i]["Quote"]}}</br>
+    
+    <br> 
+{%endfor%} 
+  
+</ol> 
+<script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">  </script>
+</body> 
+</html> 
