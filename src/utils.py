@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
 
-
 def get_files_from_gdrive(url: str, fname: str) -> None:
     file_id = url.split("/")[3].split("?")[1]
     print(file_id)
@@ -32,11 +31,7 @@ def get_autos(df, filepath="YearbookENTC"):
 
     for f in file_list:
         details = {}
-        print("f",str(f))
-        print("filepath",len(str(filepath) ) + 1)
-        print("length of filepath",str(f)[len(str(filepath))])
         name = str(f)[len(str(filepath)) + 1 :]
-        print("name",name) 
         if name in list(df.index):
             details["Name"] = (
                 df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
@@ -142,7 +137,7 @@ def split_paragraph(para, n):
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
 
-autos = get_autos("YearbookENTC")
+#autos = get_autos("YearbookENTC")
 #print(autos)
 
 
