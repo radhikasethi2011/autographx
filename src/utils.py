@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
 
+
 def get_files_from_gdrive(url: str, fname: str) -> None:
     file_id = url.split("/")[3].split("?")[1]
     print(file_id)
@@ -17,7 +18,7 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
 
 def get_autos(df, filepath="YearbookENTC"):
     df = pd.read_csv("YearbookENTC/details.csv")
-    df["query_name"] = df["First Name"] + df["Last Name"] 
+    df["query_name"] = df["First Name"] + df["Last Name"]
     df["query_name"] = df["query_name"].apply(lambda x: x.lower())
     df.set_index("query_name", inplace=True)
     autos = []
@@ -47,9 +48,8 @@ def get_autos(df, filepath="YearbookENTC"):
             details["autographs"] = {}
         else:
             print(f"Something is wrong with {name}")
-            #details["Image"] = f"unknown.png",
+            # details["Image"] = f"unknown.png",
             continue
-        
 
         for x in f.iterdir():
             if not (str(x) == f"{str(filepath)}/{name}/{name}.txt") and not (
@@ -128,6 +128,7 @@ def add_quote(autos, plt, sno):
     )
     plt.axis("off")
 
+
 def split_paragraph(para, n):
     """Returns a string that's sliced after n words.
 
@@ -137,7 +138,6 @@ def split_paragraph(para, n):
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
 
-#autos = get_autos("YearbookENTC")
-#print(autos)
 
-
+# autos = get_autos("YearbookENTC")
+# print(autos)

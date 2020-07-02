@@ -7,8 +7,7 @@ import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 from os.path import dirname, abspath
 
-from utils import (add_image, add_quote, get_autos, get_display_img,
-                   split_paragraph)
+from utils import add_image, add_quote, get_autos, get_display_img, split_paragraph
 
 
 def autographs_topdf(autos: list, pathtofile) -> None:
@@ -104,7 +103,8 @@ def print_autographs(autographs, pdf):
         pdf.savefig()
         plt.close()
 
-os.makedirs("imgdata", mode=0o777,exist_ok = True)
+
+os.makedirs("imgdata", mode=0o777, exist_ok=True)
 autos = get_autos("YearbookENTC")
 
 autographs_topdf(autos, "YearbookENTC")
