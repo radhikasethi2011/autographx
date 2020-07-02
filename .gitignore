@@ -2,7 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+imgdata/
+YearbookENTC/
+src/static/*.jpg
+src/static/*.png
+src/static/*.jpeg
 # C extensions
 *.so
 
