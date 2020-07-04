@@ -17,7 +17,7 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
 
 
 def get_autos(df, filepath="YearbookENTC"):
-    df = pd.read_csv("YearbookENTC/details.csv")
+    df = pd.read_csv("docs/details.csv")
     df["query_name"] = df["First Name"] + df["Last Name"]
     df["query_name"] = df["query_name"].apply(lambda x: x.lower())
     df.set_index("query_name", inplace=True)
