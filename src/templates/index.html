@@ -3,25 +3,35 @@
 <html lang = "en"> 
 <head> 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutographX - YearBook</title> 
     <!--add links to style sheets and bootstrap-->
     <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
+
 </head> 
 <body> 
-    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo"
+ <div class="cover" >
+    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo" style="height:1500px; width:3050px;"
     
     > <br>
+    </div>
   
 <ol> 
 <!-- For loop logic of jinja template -->
-{%for i in range(0, len)%} 
-  
-    <img src = "{{url_for('static',filename = autos[i]['Image'][0]) }}" height="250px"
-    width="250px"><br>
-    {{autos[i]["Name"]}}<br>
-    {{autos[i]["Quote"]}}</br>
-    
-    <br> 
+  <div class="row">
+   {%for i in range(0, len)%} 
+     <div class="column ">
+     <div class="card">
+    <a target="_blank" href="{{url_for('static',filename = autos[i]['Image'][0]) }}">
+      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Cinque Terre" width="600" height="400">
+    </a>
+    <h2>{{autos[i]["Name"]}}</h2>
+        <p>{{autos[i]["Quote"]}}</p>
+  </div>
+</div>
+</div>
+
 {%endfor%} 
   
 </ol> 
