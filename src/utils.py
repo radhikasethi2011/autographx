@@ -1,6 +1,8 @@
 from pathlib import Path
 
 import gdown
+from pathlib import Path
+import os
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -15,11 +17,10 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
 
 
 def get_autos(df, filepath="YearbookENTC"):
-    df = pd.read_csv("YearbookENTC/details.csv")
+    df = pd.read_csv("docs/details.csv")
     df["query_name"] = df["First Name"] + df["Last Name"]
     df["query_name"] = df["query_name"].apply(lambda x: x.lower())
     df.set_index("query_name", inplace=True)
-
     autos = []
     filepath = Path(filepath)
     assert filepath.is_dir()
@@ -32,7 +33,6 @@ def get_autos(df, filepath="YearbookENTC"):
     for f in file_list:
         details = {}
         name = str(f)[len(str(filepath)) + 1 :]
-        not_filled = []
         if name in list(df.index):
             details["Name"] = (
                 df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
@@ -40,15 +40,17 @@ def get_autos(df, filepath="YearbookENTC"):
             details["Quote"] = df.loc[name]["Quote for yearbook"]
             get_files_from_gdrive(
                 df.loc[name]["Year Book Image"],
-                f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+                f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
             details["Image"] = (
-                f"imgdata/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+                f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
             details["autographs"] = {}
         else:
             print(f"Something is wrong with {name}")
+            # details["Image"] = f"unknown.png",
             continue
+
         for x in f.iterdir():
             if not (str(x) == f"{str(filepath)}/{name}/{name}.txt") and not (
                 str(x) == f"{str(filepath)}/{name}/{name}.jpg"
@@ -126,6 +128,7 @@ def add_quote(autos, plt, sno):
     )
     plt.axis("off")
 
+
 def split_paragraph(para, n):
     """Returns a string that's sliced after n words.
 
@@ -135,3 +138,6 @@ def split_paragraph(para, n):
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
 
+
+# autos = get_autos("YearbookENTC")
+# print(autos)
