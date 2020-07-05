@@ -7,6 +7,8 @@ YearbookENTC/
 src/static/*.jpg
 src/static/*.png
 src/static/*.jpeg
+src/static/pranjaliphalke
+.vscode/
 # C extensions
 *.so
 
