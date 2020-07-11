@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutographX - YearBook</title> 
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
+
+</head>
+<body>
+<div class="cover" >
+    <img src = "{{url_for('static',filename = 'auto.png') }}" class = "logo" style="height:1500px; width:3050px;" > 
+ </div>
+
+<div >
+ <figure>
+    {%for i in range(0, len)%} 
+  <img src={{url_for('static',filename = autos[i]['Image'][0]) }} alt="Trulli" style="width:100%">
+  <figcaption>Fig.1 - Trulli, Puglia, Italy</figcaption>
+</figure>
+
+ 
+ {%endfor%} 
+
+</body>
+</html>
