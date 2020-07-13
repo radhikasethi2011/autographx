@@ -17,16 +17,27 @@
     > <br>
     </div>
   
-<ol> 
+<ol style="
+ margin-left:400px;
+
+"> 
 <!-- For loop logic of jinja template -->
-  <div class="row">
    {%for i in range(0, len)%} 
-     <div class="column ">
-     <div class="card">
-      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}"   alt="Cinque Terre" width="600" height="400">
-     <h1><button onclick="{{url_for("whiteauto.html",filename = 'whiteauto.html') }}">{{autos[i]["Name"]}}</button> </h1>
-        <p style="font-size:xx-large; " >{{autos[i]["Quote"]}}</p> 
+  <div class="column"> 
+ <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" >
+      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Avatar" style="width:650px;height:800px;">
+      <h1>{{autos[i]["Name"]}}</h1>
+    </div>
+    <div class="flip-card-back">
+         <a href="{{autos[i]["autographs"]}}" target="_blank">
+      <p>{{autos[i]["Quote"]}}</p>
+      </a>
+    </div>
   </div>
+</div> 
+</div>
 </div>
 </div>
 
