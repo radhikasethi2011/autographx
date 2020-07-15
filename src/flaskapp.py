@@ -11,6 +11,12 @@ app = Flask(__name__)
 def homepage():
     return render_template("index.html", len=len(autos), autos=autos)
 
+@app.route("/source/<name>")
+def index_func(name):
+    return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
 if __name__ == "__main__":
     app.run(use_reloader=True, debug=True)
+
+
+
