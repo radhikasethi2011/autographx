@@ -21,6 +21,7 @@ def get_autos(df, filepath="YearbookENTC"):
     df["query_name"] = df["First Name"] + df["Last Name"]
     df["query_name"] = df["query_name"].apply(lambda x: x.lower())
     df.set_index("query_name", inplace=True)
+    print(df["query_name"])
     autos = []
     filepath = Path(filepath)
     assert filepath.is_dir()
