@@ -18,7 +18,7 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
 
 def get_autos(df, filepath="YearbookENTC"):
 
-    df = pd.read_csv("YearbookENTC/details.csv")
+    df = pd.read_csv("docs/details.csv")
     
 
     df = pd.read_csv("docs/details.csv")
