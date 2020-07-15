@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 imgdata/
 YearbookENTC/
+src/static/pranjaliphalke
 src/static/*.jpg
 src/static/*.png
 src/static/*.jpeg

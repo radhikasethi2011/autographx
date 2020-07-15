@@ -17,24 +17,35 @@
     > <br>
     </div>
   
-<ol> 
+<ol style="
+ margin-left:400px;
+
+"> 
 <!-- For loop logic of jinja template -->
-  <div class="row">
    {%for i in range(0, len)%} 
-     <div class="column ">
-     <div class="card">
-    <a target="_blank" href="{{url_for('static',filename = autos[i]['Image'][0]) }}">
-      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Cinque Terre" width="600" height="400">
-    </a>
-    <h1>{{autos[i]["Name"]}}</h1>
-        <p style="font-size:xx-large; " >{{autos[i]["Quote"]}}</p>
+  <div class="column"> 
+ <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front" >
+      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Avatar" style="width:650px;height:800px;">
+        <!---<a href="{{ url_for('index_func') }}" target="_blank"><button>{{autos[i]["Name"]}}</button></a>-----<h1>{{autos[i]["Name"]}}</h1>-->
+    </div>
+    <div class="flip-card-back">
+         <a href="{{ url_for('index_func, name = "autos[i]['Name']")'}}" target="_blank">
+      <p>{{autos[i]['Name']}}</p>
+      <h1>{{autos[i]["Quote"]}}</h1>
+      </a>
+    </div>
   </div>
+</div> 
+</div>
 </div>
 </div>
 
 {%endfor%} 
   
 </ol> 
+<script src="{{url_for('static', filename='index.js')}}"></script>
 <script src = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">  </script>
 </body> 
 </html> 
