@@ -13,11 +13,16 @@
  </div>
 
 <div >
-
-   <!--- {%for i in range(0, len)%} 
-  <h1>{{autos[i]['Autographs']) }} </h1>
- {%endfor%} --> 
- <h1> Hello <name> </h1>
+      
+   
+{%for i in range(0,len) %}
+      {% if my_var in autos[i]['Name'] %}
+            {% for x,y in autos[i]['autographs'].items() %}
+                  <h3>{{ x }} </h3>
+                  <p> {{ y }} </p>
+            {%endfor%}      
+      {%endif%}            
+{%endfor%}
 </div>
 </body>
 </html>
