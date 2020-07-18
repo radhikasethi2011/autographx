@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
-
+import docx2txt
 import emoji
 
 
@@ -39,7 +39,7 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
     gdown.download(url, fname, quiet=False)
 
 
-def get_autos(filepath="YearbookENTC", details_file="docs/details.csv"):
+def get_autos(filepath="YearbookENTC", details_file="docs/details.csv", download_image=True):
     df = clean_details(details_file)
     autos = []
     filepath = Path(filepath)
@@ -53,7 +53,8 @@ def get_autos(filepath="YearbookENTC", details_file="docs/details.csv"):
             details["Quote"] = extract_quote(df, name)
             yearbook_image = df.loc[name]["Year Book Image"]
             yearbook_image_filename = f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
-            get_files_from_gdrive(yearbook_image, yearbook_image_filename)
+            if download_image :
+                get_files_from_gdrive(yearbook_image, yearbook_image_filename)
             details["Image"] = yearbook_image_filename
             details["autographs"] = {}
         else:
@@ -81,17 +82,40 @@ def extract_full_name(df, name):
 
 def extract_autographs_and_pname(filepath, name, x, df):
     try:
-        l = len(str(filepath)) + len(name) + 12
-        f = open(x, "r").read()
+        f = check_for_txt_docx(x)
         f = strip_emoji_and_dots(f)
         output = split_paragraph(f, 10)
     except:
-        output = "Input Error"
+        try :
+            f = docx2txt.process(x)
+            f = strip_emoji_and_dots(f)
+            output = split_paragraph(f, 10)
+        except:
+            output = "Input Error"
     try:
-        pname = extract_full_name(df, str(x)[l:-4])
+        l = len(str(filepath)) + len(name)+2
+        if str(x).lower()[l:l+9]=="autograph":
+            pname = extract_name(x, df, l)
+        pname = extract_full_name(df, str(x)[l+10:-4])
     except:
-        pname = str(x)
+        pname = f"{str(x)[l+10:-4]} : find file at {str(x)}"
     return output, pname
+
+def extract_name(x, df, l):
+    if str(x)[-4:]==".txt":
+        pname = extract_full_name(df, str(x)[l+10:-4])
+    elif str(x)[-9:]==".txt.docx":
+        pname = extract_full_name(df, str(x)[l+10:-9])
+    elif str(x)[-4:]=="docx":
+        pname = extract_full_name(df, str(x)[l+10:-5])
+    return pname
+
+def check_for_txt_docx(x):
+    if str(x)[-4:] == "docx":
+        f = docx2txt.process(str(x))
+    else:
+        f = open(x, "r").read()
+    return f
 
 
 def file_list_from_dir(filepath):
@@ -120,7 +144,7 @@ def get_display_img(imgpath):
 
 def add_image(autos, plt, sno):
     try:
-        imgpath = autos[sno]["Image"][0]
+        imgpath = autos[sno]["Image"]
         img = mpimg.imread(get_display_img(imgpath))
         plt.imshow(img)
     except:
@@ -172,7 +196,3 @@ def split_paragraph(para, n):
     res = para.split()
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
-
-
-# autos = get_autos("YearbookENTC")
-# print(autos)

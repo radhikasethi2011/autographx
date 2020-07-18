@@ -1,3 +1,4 @@
 numpy==1.16.2
 matplotlib==3.1.2
 emoji
+python-docx
