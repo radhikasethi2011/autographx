@@ -11,7 +11,17 @@ import emoji
 import re
 
 
-def strip_emoji_and_dots(text):
+def strip_emoji_and_dots(text: str)->str:
+    """The files have a lot of emojies, and it causes errors. 
+    Currently removing emojies and ... because they cause the 
+    sentence to grow longer
+
+    Args:
+        text (str): input text
+
+    Returns:
+        str: de-emojised text
+    """
     new_text = re.sub(emoji.get_emoji_regexp(), r"", text)
     new_text = new_text.replace("...", ". ")
     new_text = new_text.replace("...", ". ")
@@ -83,7 +93,6 @@ def get_autos(df, filepath="YearbookENTC", details="docs/details.csv"):
                     )
                 except:
                     pname = str(x)
-                    print(f"{name} : {pname}")
                 details["autographs"][pname] = output
         autos.append(details)
     return autos
