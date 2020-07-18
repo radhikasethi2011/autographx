@@ -10,7 +10,10 @@ src/static/*.png
 src/static/*.jpeg
 # C extensions
 *.so
-
+# Autographx Specific
+*.pdf
+*.ipynb
+*.DS_Store
 # Distribution / packaging
 .Python
 build/
