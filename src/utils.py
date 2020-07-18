@@ -1,17 +1,17 @@
+import os
+import re
 from pathlib import Path
 
 import gdown
-from pathlib import Path
-import os
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
+
 import emoji
-import re
 
 
-def strip_emoji_and_dots(text: str)->str:
+def strip_emoji_and_dots(text: str) -> str:
     """The files have a lot of emojies, and it causes errors. 
     Currently removing emojies and ... because they cause the 
     sentence to grow longer
@@ -27,6 +27,8 @@ def strip_emoji_and_dots(text: str)->str:
     new_text = new_text.replace("...", ". ")
     new_text = new_text.replace(" . ", ". ")
     new_text = new_text.replace(" .", ". ")
+    new_text = new_text.replace("\ufeff", "")
+    new_text = new_text.replace("\n", " ")
     return new_text
 
 
@@ -37,65 +39,76 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
     gdown.download(url, fname, quiet=False)
 
 
-def get_autos(df, filepath="YearbookENTC", details="docs/details.csv"):
-    df = pd.read_csv(details)
-    df["query_name"] = df["First Name"] + df["Last Name"]
-    df["query_name"] = df["query_name"].apply(lambda x: x.lower())
-    df.set_index("query_name", inplace=True)
+def get_autos(filepath="YearbookENTC", details_file="docs/details.csv"):
+    df = clean_details(details_file)
     autos = []
     filepath = Path(filepath)
-    assert filepath.is_dir()
-    file_list = []
-    for x in filepath.iterdir():
-        if x.is_dir():
-            file_list.append(x)
-    print(file_list)
+    file_list = file_list_from_dir(filepath)
 
     for f in file_list:
         details = {}
         name = str(f)[len(str(filepath)) + 1 :]
         if name in list(df.index):
-            details["Name"] = (
-                df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
-            )
-            details["Quote"] = strip_emoji_and_dots(str(df.loc[name]["Quote for yearbook"]))
-            # get_files_from_gdrive(
-            #     df.loc[name]["Year Book Image"],
-            #     f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
-            # )
-            details["Image"] = (
-                f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
-            )
+            details["Name"] = extract_full_name(df, name)
+            details["Quote"] = extract_quote(df, name)
+            yearbook_image = df.loc[name]["Year Book Image"]
+            yearbook_image_filename = f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
+            get_files_from_gdrive(yearbook_image, yearbook_image_filename)
+            details["Image"] = yearbook_image_filename
             details["autographs"] = {}
         else:
-            print(f"Something is wrong with {name}")
-            # details["Image"] = f"unknown.png",
             continue
 
         for x in f.iterdir():
-            if not (str(x) == f"{str(filepath)}/{name}/{name}.txt") and not (
-                str(x) == f"{str(filepath)}/{name}/{name}.jpg"
-                or str(x) == f"{str(filepath)}/{name}/{name}.png"
+            path_to_persons_files = f"{str(filepath)}/{name}/{name}"
+            if not (str(x) == f"{path_to_persons_files}.txt") and not (
+                str(x) == f"{path_to_persons_files}.jpg"
+                or str(x) == f"{path_to_persons_files}.png"
             ):
-
-                try:
-                    l = len(str(filepath)) + len(name) + 12
-                    f = open(x, "r").read().replace("\n", " ").replace("\ufeff", "")
-                    f = strip_emoji_and_dots(f)
-                    output = split_paragraph(f, 10)
-                except:
-                    output = "Input Error"
-                try:
-                    pname = (
-                        df.loc[str(x)[l:-4]]["First Name"]
-                        + " "
-                        + df.loc[str(x)[l:-4]]["Last Name"]
-                    )
-                except:
-                    pname = str(x)
+                output, pname = extract_autographs_and_pname(filepath, name, x, df)
                 details["autographs"][pname] = output
         autos.append(details)
     return autos
+
+
+def extract_quote(df, name):
+    return strip_emoji_and_dots(str(df.loc[name]["Quote for yearbook"]))
+
+
+def extract_full_name(df, name):
+    return df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
+
+
+def extract_autographs_and_pname(filepath, name, x, df):
+    try:
+        l = len(str(filepath)) + len(name) + 12
+        f = open(x, "r").read()
+        f = strip_emoji_and_dots(f)
+        output = split_paragraph(f, 10)
+    except:
+        output = "Input Error"
+    try:
+        pname = extract_full_name(df, str(x)[l:-4])
+    except:
+        pname = str(x)
+    return output, pname
+
+
+def file_list_from_dir(filepath):
+    assert filepath.is_dir()
+    file_list = []
+    for x in filepath.iterdir():
+        if x.is_dir():
+            file_list.append(x)
+    return file_list
+
+
+def clean_details(details_file):
+    df = pd.read_csv(details_file)
+    df["query_name"] = df["First Name"] + df["Last Name"]
+    df["query_name"] = df["query_name"].apply(lambda x: x.lower())
+    df.set_index("query_name", inplace=True)
+    return df
 
 
 def get_display_img(imgpath):
