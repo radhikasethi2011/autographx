@@ -9,7 +9,7 @@ import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
 import docx2txt
 import emoji
-
+import typing
 
 def strip_emoji_and_dots(text: str) -> str:
     """The files have a lot of emojies, and it causes errors. 
@@ -33,13 +33,29 @@ def strip_emoji_and_dots(text: str) -> str:
 
 
 def get_files_from_gdrive(url: str, fname: str) -> None:
+    """downloads file from gdrive
+
+    Args:
+        url (str): gdrive url
+        fname (str): name of the file
+    """
     file_id = url.split("/")[3].split("?")[1]
     print(file_id)
     url = f"https://drive.google.com/uc?{file_id}"
     gdown.download(url, fname, quiet=False)
 
 
-def get_autos(filepath="YearbookENTC", details_file="docs/details.csv", download_image=True):
+def get_autos(filepath:str="YearbookENTC", details_file:str="docs/details.csv", download_image:bool=True)->dict:
+    """Returns a dict of autos for each person.
+
+    Args:
+        filepath (str, optional): Dir path to all the autographs. Defaults to "YearbookENTC".
+        details_file (str, optional): details for name and quotes and photos Defaults to "docs/details.csv".
+        download_image (bool, optional): do you want to download the images again. Defaults to True.
+
+    Returns:
+        dict: autos dict
+    """
     df = clean_details(details_file)
     autos = []
     filepath = Path(filepath)
@@ -72,15 +88,43 @@ def get_autos(filepath="YearbookENTC", details_file="docs/details.csv", download
     return autos
 
 
-def extract_quote(df, name):
+def extract_quote(df:pd.DataFrame, name:str)->str:
+    """Extracts the quote of the person from dataframe
+
+    Args:
+        df (pd.DataFrame): details dataframe
+        name (str): the person's name who's quote you're querying
+
+    Returns:
+        str: the yearbook quote of the person
+    """
     return strip_emoji_and_dots(str(df.loc[name]["Quote for yearbook"]))
 
 
-def extract_full_name(df, name):
+def extract_full_name(df:str, name:str)->str:
+    """Based on the queryname returns full name with space.
+
+    Args:
+        df (pd.DataFrame): details dataframe
+        name (str): the person's name who's quote you're querying
+
+    Returns:
+        str: the yearbook quote of the person
+    """
     return df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
 
+def extract_autographs_and_pname(filepath, name, x,  df):
+    """extracts autographs from folder and the name of the person writing the autograph
+    Args:
+        filepath : path to the main dir where all autograph dirs are there
+        name : queryname of the person
+        x : Pathlib file to the file in concern
+        df : details dataframe
 
-def extract_autographs_and_pname(filepath, name, x, df):
+    Returns:
+        output : the autogaph of person
+        pname : name of the person who wrote that autograph
+    """
     try:
         f = check_for_txt_docx(x)
         f = strip_emoji_and_dots(f)
@@ -102,6 +146,16 @@ def extract_autographs_and_pname(filepath, name, x, df):
     return output, pname
 
 def extract_name(x, df, l):
+    """[summary]
+
+    Args:
+        x : Pathlib file to the file in concern
+        df : details datafame
+        l : length of the string till "autograph" begins
+
+    Returns:
+        str: name of the peron (firstname lastname)
+    """
     if str(x)[-4:]==".txt":
         pname = extract_full_name(df, str(x)[l+10:-4])
     elif str(x)[-9:]==".txt.docx":
