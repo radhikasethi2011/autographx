@@ -1,9 +1,12 @@
 
 body{
-  background-color:white;
+  background-color:black;
   font-size: xx-large;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-style: italic;
+  background-image: url('/static/img/het.jpg');
+  background-repeat: repeat-y;
+  background-position: 5%;
 }
 h1{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -26,8 +29,8 @@ body {
   display: table-cell;
   color: beige;
   vertical-align: middle;
-  border-right: 10px solid #fff ;
-  border-left: 10px solid #fff;
+  border-right: 10px solid black ;
+  border-left: 10px solid black;
 }
 
 /* Remove extra left and right margins, due to padding in columns */
@@ -62,7 +65,7 @@ body {
 
 .flip-card {
   border-style: hidden;
-  background-color: white;
+  background-color:black;
   width: 420px;
   height: 1000px;
   perspective: 1000px;
@@ -75,13 +78,13 @@ body {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px 0 black;
   padding: 16px;
 }
 
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
-  backface-visibility: visible;
+ /* backface-visibility: visible;*/
 
 }
 
@@ -94,8 +97,8 @@ body {
 }
 
 .flip-card-front {
-  background-color:white;
-  color: black;
+  background-color:black;
+  color:white;
 }
 
 .flip-card-back {
