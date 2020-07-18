@@ -16,10 +16,12 @@
       
    
 {%for i in range(0,len) %}
-      {% if my_var in autos[i]['Name'] %}
+      {% if name in autos[i]['Name'] %}
             {% for x,y in autos[i]['autographs'].items() %}
-                  <h3>{{ x }} </h3>
-                  <p> {{ y }} </p>
+                  {% if i!=0 %}
+                        <h3>{{ x }} </h3>
+                        <p> {{ y }} </p>
+                  {%endif%}      
             {%endfor%}      
       {%endif%}            
 {%endfor%}

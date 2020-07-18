@@ -19,9 +19,9 @@ def homepage():
 
 @app.route("/autographs/<string:name>")
 def index_func(name):
-    my_var = request.args.get('my_var',None)
-    return """<h1> the name is : {}</h1>""".format(my_var)
-    #return render_template("whiteauto.html", len=len(autos), autos=autos, my_var=my_var) 
+    #my_var = request.args.get('name',None)
+    #return """<h1> the name is : {}</h1>""".format(name)
+    return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
 if __name__ == "__main__":
     app.run(use_reloader=True, debug=True)
