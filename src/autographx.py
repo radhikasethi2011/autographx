@@ -104,7 +104,5 @@ def print_autographs(autographs, pdf):
         plt.close()
 
 
-os.makedirs("imgdata", mode=0o777, exist_ok=True)
 autos = get_autos("YearbookENTC", download_image=False)
-
 autographs_topdf(autos)

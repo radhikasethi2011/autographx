@@ -1,5 +1,6 @@
 import os
 import re
+import typing
 from pathlib import Path
 
 import gdown
@@ -7,9 +8,11 @@ import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
+from tqdm import tqdm
+
 import docx2txt
 import emoji
-import typing
+
 
 def strip_emoji_and_dots(text: str) -> str:
     """The files have a lot of emojies, and it causes errors. 
@@ -40,12 +43,15 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
         fname (str): name of the file
     """
     file_id = url.split("/")[3].split("?")[1]
-    print(file_id)
     url = f"https://drive.google.com/uc?{file_id}"
-    gdown.download(url, fname, quiet=False)
+    gdown.download(url, fname, quiet=True)
 
 
-def get_autos(filepath:str="YearbookENTC", details_file:str="docs/details.csv", download_image:bool=True)->dict:
+def get_autos(
+    filepath: str = "YearbookENTC",
+    details_file: str = "docs/details.csv",
+    download_image: bool = True,
+) -> dict:
     """Returns a dict of autos for each person.
 
     Args:
@@ -61,7 +67,7 @@ def get_autos(filepath:str="YearbookENTC", details_file:str="docs/details.csv", 
     filepath = Path(filepath)
     file_list = file_list_from_dir(filepath)
 
-    for f in file_list:
+    for f in tqdm(file_list):
         details = {}
         name = str(f)[len(str(filepath)) + 1 :]
         if name in list(df.index):
@@ -69,11 +75,12 @@ def get_autos(filepath:str="YearbookENTC", details_file:str="docs/details.csv", 
             details["Quote"] = extract_quote(df, name)
             yearbook_image = df.loc[name]["Year Book Image"]
             yearbook_image_filename = f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
-            if download_image :
+            if download_image:
                 get_files_from_gdrive(yearbook_image, yearbook_image_filename)
             details["Image"] = yearbook_image_filename
             details["autographs"] = {}
         else:
+            print(f"something is wrong with {name}")
             continue
 
         for x in f.iterdir():
@@ -88,7 +95,7 @@ def get_autos(filepath:str="YearbookENTC", details_file:str="docs/details.csv", 
     return autos
 
 
-def extract_quote(df:pd.DataFrame, name:str)->str:
+def extract_quote(df: pd.DataFrame, name: str) -> str:
     """Extracts the quote of the person from dataframe
 
     Args:
@@ -101,7 +108,7 @@ def extract_quote(df:pd.DataFrame, name:str)->str:
     return strip_emoji_and_dots(str(df.loc[name]["Quote for yearbook"]))
 
 
-def extract_full_name(df:str, name:str)->str:
+def extract_full_name(df: str, name: str) -> str:
     """Based on the queryname returns full name with space.
 
     Args:
@@ -113,7 +120,8 @@ def extract_full_name(df:str, name:str)->str:
     """
     return df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
 
-def extract_autographs_and_pname(filepath, name, x,  df):
+
+def extract_autographs_and_pname(filepath, name, x, df):
     """extracts autographs from folder and the name of the person writing the autograph
     Args:
         filepath : path to the main dir where all autograph dirs are there
@@ -130,20 +138,23 @@ def extract_autographs_and_pname(filepath, name, x,  df):
         f = strip_emoji_and_dots(f)
         output = split_paragraph(f, 10)
     except:
-        try :
+        try:
             f = docx2txt.process(x)
             f = strip_emoji_and_dots(f)
             output = split_paragraph(f, 10)
         except:
             output = "Input Error"
+            print(f"Input Error for {name}")
+            print(f"Input Error file name {str(x)}")
     try:
-        l = len(str(filepath)) + len(name)+2
-        if str(x).lower()[l:l+9]=="autograph":
+        l = len(str(filepath)) + len(name) + 2
+        if str(x).lower()[l : l + 9] == "autograph":
             pname = extract_name(x, df, l)
-        pname = extract_full_name(df, str(x)[l+10:-4])
+        pname = extract_full_name(df, str(x)[l + 10 : -4])
     except:
-        pname = f"{str(x)[l+10:-4]} : find file at {str(x)}"
+        pname = f"{str(x)[l+10:-4]}\nfind file at {str(x)}"
     return output, pname
+
 
 def extract_name(x, df, l):
     """[summary]
@@ -156,13 +167,14 @@ def extract_name(x, df, l):
     Returns:
         str: name of the peron (firstname lastname)
     """
-    if str(x)[-4:]==".txt":
-        pname = extract_full_name(df, str(x)[l+10:-4])
-    elif str(x)[-9:]==".txt.docx":
-        pname = extract_full_name(df, str(x)[l+10:-9])
-    elif str(x)[-4:]=="docx":
-        pname = extract_full_name(df, str(x)[l+10:-5])
+    if str(x)[-4:] == ".txt":
+        pname = extract_full_name(df, str(x)[l + 10 : -4])
+    elif str(x)[-9:] == ".txt.docx":
+        pname = extract_full_name(df, str(x)[l + 10 : -9])
+    elif str(x)[-4:] == "docx":
+        pname = extract_full_name(df, str(x)[l + 10 : -5])
     return pname
+
 
 def check_for_txt_docx(x):
     if str(x)[-4:] == "docx":
