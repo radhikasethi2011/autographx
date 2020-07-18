@@ -7,6 +7,17 @@ import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.backends.backend_pdf import PdfPages
+import emoji
+import re
+
+
+def strip_emoji_and_dots(text):
+    new_text = re.sub(emoji.get_emoji_regexp(), r"", text)
+    new_text = new_text.replace("...", ". ")
+    new_text = new_text.replace("...", ". ")
+    new_text = new_text.replace(" . ", ". ")
+    new_text = new_text.replace(" .", ". ")
+    return new_text
 
 
 def get_files_from_gdrive(url: str, fname: str) -> None:
@@ -16,8 +27,8 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
     gdown.download(url, fname, quiet=False)
 
 
-def get_autos(df, filepath="YearbookENTC"):
-    df = pd.read_csv("docs/details.csv")
+def get_autos(df, filepath="YearbookENTC", details="docs/details.csv"):
+    df = pd.read_csv(details)
     df["query_name"] = df["First Name"] + df["Last Name"]
     df["query_name"] = df["query_name"].apply(lambda x: x.lower())
     df.set_index("query_name", inplace=True)
@@ -37,11 +48,11 @@ def get_autos(df, filepath="YearbookENTC"):
             details["Name"] = (
                 df.loc[name]["First Name"] + " " + df.loc[name]["Last Name"]
             )
-            details["Quote"] = df.loc[name]["Quote for yearbook"]
-            get_files_from_gdrive(
-                df.loc[name]["Year Book Image"],
-                f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
-            )
+            details["Quote"] = strip_emoji_and_dots(str(df.loc[name]["Quote for yearbook"]))
+            # get_files_from_gdrive(
+            #     df.loc[name]["Year Book Image"],
+            #     f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
+            # )
             details["Image"] = (
                 f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}",
             )
@@ -60,6 +71,7 @@ def get_autos(df, filepath="YearbookENTC"):
                 try:
                     l = len(str(filepath)) + len(name) + 12
                     f = open(x, "r").read().replace("\n", " ").replace("\ufeff", "")
+                    f = strip_emoji_and_dots(f)
                     output = split_paragraph(f, 10)
                 except:
                     output = "Input Error"
@@ -70,7 +82,8 @@ def get_autos(df, filepath="YearbookENTC"):
                         + df.loc[str(x)[l:-4]]["Last Name"]
                     )
                 except:
-                    pname = str(x)[l:-4]
+                    pname = str(x)
+                    print(f"{name} : {pname}")
                 details["autographs"][pname] = output
         autos.append(details)
     return autos
