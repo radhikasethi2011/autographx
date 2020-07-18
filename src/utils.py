@@ -23,8 +23,9 @@ def get_autos(df, filepath="YearbookENTC"):
 
     df = pd.read_csv("docs/details.csv")
     df["query_name"] = df["First Name"] + df["Last Name"]
-    df["query_name"] = df["query_name"].apply(lambda x: x.lower())
+    df["query_name"] = df["query_name"].apply(lambda x: x.lower().replace(" ",""))
     df.set_index("query_name", inplace=True)
+    print(df.index)
     autos = []
     filepath = Path(filepath)
     assert filepath.is_dir()
@@ -57,6 +58,7 @@ def get_autos(df, filepath="YearbookENTC"):
             continue
 
         for x in f.iterdir():
+            #print(x)
             if not (str(x) == f"{str(filepath)}/{name}/{name}.txt") and not (
                 str(x) == f"{str(filepath)}/{name}/{name}.jpg"
                 or str(x) == f"{str(filepath)}/{name}/{name}.png"
@@ -65,6 +67,8 @@ def get_autos(df, filepath="YearbookENTC"):
                 try:
                     l = len(str(filepath)) + len(name) + 12
                     f = open(x, "r").read().replace("\n", " ").replace("\ufeff", "")
+                    #print(l)
+                    #print(f)
                     output = split_paragraph(f, 10)
                 except:
                     output = "Input Error"
@@ -74,6 +78,8 @@ def get_autos(df, filepath="YearbookENTC"):
                         + " "
                         + df.loc[str(x)[l:-4]]["Last Name"]
                     )
+                    #print("the pname is ", pname)
+                    #print("the output is", output)
                 except:
                     pname = str(x)[l:-4]
                 details["autographs"][pname] = output
@@ -142,7 +148,5 @@ def split_paragraph(para, n):
     res = para.split()
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
-
-
 # autos = get_autos("YearbookENTC")
 # print(autos)

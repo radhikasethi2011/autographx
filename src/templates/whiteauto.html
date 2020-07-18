@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AutographX - YearBook</title> 
+    <title>Your Autographs</title> 
    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
 
 </head>
@@ -13,15 +13,18 @@
  </div>
 
 <div >
- <figure>
-    {%for i in range(0, len)%} 
-  <img src={{url_for('static',filename = autos[i]['Image'][0]) }} alt="Trulli" style="width:100%">
-  <h1>{{autos[i]["Name"]}}</h1>
-  <figcaption>Fig.1 - Trulli, Puglia, Italy</figcaption>
-</figure>
-
- 
- {%endfor%} 
-
+      
+   
+{%for i in range(0,len) %}
+      {% if name in autos[i]['Name'] %}
+            {% for x,y in autos[i]['autographs'].items() %}
+                  {% if i!=0 %}
+                        <h3>{{ x }} </h3>
+                        <p> {{ y }} </p>
+                  {%endif%}      
+            {%endfor%}      
+      {%endif%}            
+{%endfor%}
+</div>
 </body>
 </html>

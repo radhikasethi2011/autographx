@@ -24,16 +24,18 @@
 "> 
 <!-- For loop logic of jinja template -->
    {%for i in range(0, len)%} 
+   
   <div class="column"> 
  <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front" >
       <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Avatar" style="width:650px;height:800px;">
-      <h1>{{autos[i]["Name"]}}</h1>
+        <a href="{{ url_for('index_func', name =  autos[i]['Name'] ) }}" target="_blank"><button>{{ autos[i]["Name"] }}
     </div>
     <div class="flip-card-back">
-         <a href="{{autos[i]["autographs"]}}" target="_blank">
-      <p>{{autos[i]["Quote"]}}</p>
+      <p>{{autos[i]['Name']}}</p>
+      <h1>{{autos[i]["Quote"]}}</h1>
+      
       </a>
     </div>
   </div>
