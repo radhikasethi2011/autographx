@@ -51,8 +51,8 @@ def get_autos(
     filepath: str = "YearbookENTC",
     details_file: str = "docs/details.csv",
     download_image: bool = True,
-) -> dict:
-    """Returns a dict of autos for each person.
+) -> list:
+    """Returns a list of dictionaries of autographs for each person.
 
     Args:
         filepath (str, optional): Dir path to all the autographs. Defaults to "YearbookENTC".
