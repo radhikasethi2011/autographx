@@ -6,9 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.backends.backend_pdf import PdfPages
 from os.path import dirname, abspath
-
+from tqdm import tqdm
 from utils import add_image, add_quote, get_autos, get_display_img, split_paragraph
-
+import warnings
+warnings.filterwarnings("ignore")
 
 def autographs_topdf(autos: list) -> None:
     """Takes autographs and converts them to pdfs
@@ -17,7 +18,7 @@ def autographs_topdf(autos: list) -> None:
         autographs {dict} -- Dict of name-autograph mapping
         name {str} -- name of the person who these autographs are for
     """
-    for person in autos:
+    for person in tqdm(autos):
         with PdfPages(f"{person['Name']}.pdf") as pdf:
             print_cover(pdf)
             print_grid(autos, pdf)

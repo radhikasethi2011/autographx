@@ -80,7 +80,7 @@ def get_autos(
             details["Image"] = yearbook_image_filename
             details["autographs"] = {}
         else:
-            print(f"something is wrong with {name}")
+            # print(f"something is wrong with {name}")
             continue
 
         for x in f.iterdir():
@@ -144,8 +144,8 @@ def extract_autographs_and_pname(filepath, name, x, df):
             output = split_paragraph(f, 10)
         except:
             output = "Input Error"
-            print(f"Input Error for {name}")
-            print(f"Input Error file name {str(x)}")
+            # print(f"Input Error for {name}")
+            # print(f"Input Error file name {str(x)}")
     try:
         l = len(str(filepath)) + len(name) + 2
         if str(x).lower()[l : l + 9] == "autograph":
