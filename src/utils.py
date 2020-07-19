@@ -32,6 +32,10 @@ def strip_emoji_and_dots(text: str) -> str:
     new_text = new_text.replace(" .", ". ")
     new_text = new_text.replace("\ufeff", "")
     new_text = new_text.replace("\n", " ")
+    new_text = new_text.replace("'", "")
+    new_text = new_text.replace(" '", "")
+    new_text = new_text.replace("' ", "")
+    new_text = new_text.replace(" ' ", "")
     return new_text
 
 
