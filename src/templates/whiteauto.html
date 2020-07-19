@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Autographs</title> 
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
+
+</head>
+<body>
+<div class="cover" >
+    <img src = "{{url_for('static',filename = 'auto.png') }}" class = "logo" style="height:1500px; width:3050px;" > 
+ </div>
+
+<div >
+      
+   
+{%for i in range(0,len) %}
+      {% if name in autos[i]['Name'] %}
+            {% for x,y in autos[i]['autographs'].items() %}
+                  {% if i!=0 %}
+                        <h3>{{ x }} </h3>
+                        <p> {{ y }} </p>
+                  {%endif%}      
+            {%endfor%}      
+      {%endif%}            
+{%endfor%}
+</div>
+</body>
+</html>

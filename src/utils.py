@@ -63,11 +63,14 @@ def get_autos(
         dict: autos dict
     """
     df = clean_details(details_file)
+
     autos = []
     filepath = Path(filepath)
     file_list = file_list_from_dir(filepath)
 
+
     for f in tqdm(file_list):
+
         details = {}
         name = str(f)[len(str(filepath)) + 1 :]
         if name in list(df.index):
@@ -84,12 +87,14 @@ def get_autos(
             continue
 
         for x in f.iterdir():
+
             path_to_persons_files = f"{str(filepath)}/{name}/{name}"
             if not (str(x) == f"{path_to_persons_files}.txt") and not (
                 str(x) == f"{path_to_persons_files}.jpg"
                 or str(x) == f"{path_to_persons_files}.png"
             ):
                 output, pname = extract_autographs_and_pname(filepath, name, x, df)
+
                 details["autographs"][pname] = output
         autos.append(details)
     return autos
@@ -262,3 +267,4 @@ def split_paragraph(para, n):
     res = para.split()
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
+

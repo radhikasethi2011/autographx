@@ -1,0 +1,107 @@
+
+body{
+  background-color:white;
+  font-size: xx-large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: italic;
+}
+h1{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33.333%;
+  padding:  10px;
+  text-align: center;
+  display: table-cell;
+  color: beige;
+  vertical-align: middle;
+  border-right: 10px solid #fff ;
+  border-left: 10px solid #fff;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 20px 0;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+/*.flip-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect 
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}*/
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 800px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin: 00px 0;
+  }
+  
+}
+
+/* Style the counter cards */
+
+.flip-card {
+  border-style: hidden;
+  background-color: white;
+  width: 420px;
+  height: 1000px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+  padding: 16px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  backface-visibility: visible;
+
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color:white;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: beige;
+  color:black;
+  transform: rotateY(180deg);
+
+
+}
