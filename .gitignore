@@ -12,7 +12,10 @@ src/static/pranjaliphalke
 .vscode/
 # C extensions
 *.so
-
+# Autographx Specific
+*.pdf
+*.ipynb
+*.DS_Store
 # Distribution / packaging
 .Python
 build/

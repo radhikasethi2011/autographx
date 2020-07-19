@@ -29,7 +29,7 @@
  <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front" >
-      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Avatar" style="width:650px;height:800px;">
+      <img src="{{url_for('static',filename = autos[i]['flask_image']) }}" alt="Avatar" style="width:650px;height:800px;">
         <a href="{{ url_for('index_func', name =  autos[i]['Name'] ) }}" target="_blank"><button>{{ autos[i]["Name"] }}
     </div>
     <div class="flip-card-back">

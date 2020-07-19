@@ -9,7 +9,7 @@ from flask import Flask, render_template
 #...     print(x, " : ", y)
 
 
-autos = get_autos("YearbookENTC")
+autos = get_autos("YearbookENTC", download_image=True)
 app = Flask(__name__)
 
 
