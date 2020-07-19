@@ -47,14 +47,6 @@ def get_files_from_gdrive(url: str, fname: str) -> None:
     gdown.download(url, fname, quiet=True)
 
 
-<<<<<<< HEAD
-def get_autos(df, filepath="YearbookENTC"):
-    df = pd.read_csv("docs/details.csv")
-    df["query_name"] = df["First Name"] + df["Last Name"]
-    df["query_name"] = df["query_name"].apply(lambda x: x.lower())
-    df.set_index("query_name", inplace=True)
-    print(df["query_name"])
-=======
 def get_autos(
     filepath: str = "YearbookENTC",
     details_file: str = "docs/details.csv",
@@ -71,7 +63,6 @@ def get_autos(
         dict: autos dict
     """
     df = clean_details(details_file)
->>>>>>> 469a1a874ff3d03bffc070d88c447a0632a8c1de
     autos = []
     filepath = Path(filepath)
     file_list = file_list_from_dir(filepath)
