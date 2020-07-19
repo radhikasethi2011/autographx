@@ -10,7 +10,7 @@ from os.path import dirname, abspath
 from utils import add_image, add_quote, get_autos, get_display_img, split_paragraph
 
 
-def autographs_topdf(autos: list, pathtofile) -> None:
+def autographs_topdf(autos: list) -> None:
     """Takes autographs and converts them to pdfs
 
     Arguments:
@@ -20,7 +20,7 @@ def autographs_topdf(autos: list, pathtofile) -> None:
     for person in autos:
         with PdfPages(f"{person['Name']}.pdf") as pdf:
             print_cover(pdf)
-            print_grid(autos, pdf, pathtofile)
+            print_grid(autos, pdf)
             print_autographs(person["autographs"], pdf)
 
 
@@ -35,7 +35,7 @@ def print_cover(pdf):
     plt.close()
 
 
-def print_grid(autos, pdf, pathtofile):
+def print_grid(autos, pdf):
     for sno in range(0, len(autos), 4):
         plt.figure(figsize=(10.8, 19.2))
         plt.subplot(4, 2, 1)
@@ -104,7 +104,5 @@ def print_autographs(autographs, pdf):
         plt.close()
 
 
-os.makedirs("imgdata", mode=0o777, exist_ok=True)
-autos = get_autos("YearbookENTC")
-
-autographs_topdf(autos, "YearbookENTC")
+autos = get_autos("YearbookENTC", download_image=False)
+autographs_topdf(autos)
