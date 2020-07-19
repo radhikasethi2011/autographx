@@ -86,6 +86,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "esh2112",
+      "name": "esh2112",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/63820916?v=4",
+      "profile": "https://github.com/esh2112",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
