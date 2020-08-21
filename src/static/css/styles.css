@@ -113,3 +113,21 @@
 
 }
 
+.btn {
+  vertical-align: bottom;  
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 32px;
+  text-align: center;
+  font-size: 70px;
+  margin:50px;
+  opacity: 0.6;
+  transition: 0.3s;
+  border-radius: 8%;
+}
+
+.btn:hover {
+  opacity: 1;
+  background-color: rgb(83, 83, 218);
+}
