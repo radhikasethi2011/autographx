@@ -21,24 +21,11 @@
             <div class="container">
        <div class="column">
         <div class="thought">
-                  {% if i!=0 %}
-                  <div >
+                  <div onload="splitWords();" >
                   <blockquote style="font-size:450%;" contenteditable="true"><q>{{ y }}</q>
                      <cite style="font-size:100%;">{{ x }}</cite>
                     </blockquote>
-                      
-                        
-                  </div>
-           </div>
-                  {%endif%}
-                  </div>      
-            {%endfor%}      
-      {%endif%}            
-{%endfor%}
-</div>
-<script>
-{%for i in range(0,len) %}
-
+                      <script>
 function splitWords() {
   let quote = document.querySelector("blockquote q");
   quote.innerText.replace(/(<([^>]+)>)/ig,"");
@@ -78,9 +65,16 @@ function fadeWords(quotewords) {
 }
 
 
-splitWords();
-{%endfor%}      
-      
+splitWords();      
 </script>
+                        
+                  </div>
+           </div>
+                  </div>      
+            {%endfor%}      
+      {%endif%}            
+{%endfor%}
+</div>
+
 </body>
 </html>
