@@ -4,27 +4,83 @@
   <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Your Autographs</title> 
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/autosty.css') }}"> 
 
 </head>
-<body>
-<div class="cover" >
-    <img src = "{{url_for('static',filename = 'auto.png') }}" class = "logo" style="height:1500px; width:3050px;" > 
+<body class="sub">
+<div class="subcover" >
+    <img src = "{{url_for('static',filename = 'img/auto.png') }}" class = "logo" style="width: 100%;"> 
  </div>
 
-<div >
+<div>
       
    
 {%for i in range(0,len) %}
       {% if name in autos[i]['Name'] %}
             {% for x,y in autos[i]['autographs'].items() %}
+            <div class="container">
+       <div class="column">
+        <div class="thought">
                   {% if i!=0 %}
-                        <h3>{{ x }} </h3>
-                        <p> {{ y }} </p>
-                  {%endif%}      
+                  <div >
+                  <blockquote style="font-size:450%;" contenteditable="true"><q>{{ y }}</q>
+                     <cite style="font-size:100%;">{{ x }}</cite>
+                    </blockquote>
+                      
+                        
+                  </div>
+           </div>
+                  {%endif%}
+                  </div>      
             {%endfor%}      
       {%endif%}            
 {%endfor%}
 </div>
+<script>
+{%for i in range(0,len) %}
+
+function splitWords() {
+  let quote = document.querySelector("blockquote q");
+  quote.innerText.replace(/(<([^>]+)>)/ig,"");
+  quotewords = quote.innerText.split(" "),
+  wordCount = quotewords.length;
+  quote.innerHTML = "";
+  for (let i=0; i < wordCount; i++) {
+    quote.innerHTML += "<span>"+quotewords[i]+"</span>";
+    if (i < quotewords.length - 1) {
+      quote.innerHTML += " ";
+    }
+  }
+  quotewords = document.querySelectorAll("blockquote q span");
+  fadeWords(quotewords);
+}
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function fadeWords(quotewords) {
+  Array.prototype.forEach.call(quotewords, function(word) {
+    let animate = word.animate([{
+      opacity: 0,
+      filter: "blur("+getRandom(2,5)+"px)"
+    }, {
+      opacity: 1,
+      filter: "blur(0px)"
+    }], 
+    { 
+      duration: 1000,
+      delay: getRandom(500,3300),
+      fill: 'forwards'
+    } 
+   )
+  })
+}
+
+
+splitWords();
+{%endfor%}      
+      
+</script>
 </body>
 </html>
