@@ -9,7 +9,7 @@ from flask import Flask, render_template
 #...     print(x, " : ", y)
 
 
-autos = get_autos("YearbookENTC", download_image=True)
+
 app = Flask(__name__)
 
 
@@ -24,6 +24,7 @@ def index_func(name):
     return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
 if __name__ == "__main__":
+    autos = get_autos("YearbookENTC", download_image=False)
     app.run(use_reloader=True, debug=True)
 
 
