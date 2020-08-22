@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-=======
+
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
->>>>>>> 5df42a326536d9184be0517f68b691737bf3a124
+
 # Autographx - Automated YearBook Generator
 
 ![img](https://i.ibb.co/1JW1s9H/autographx-2.png)
