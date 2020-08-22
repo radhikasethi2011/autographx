@@ -1,12 +1,23 @@
+<<<<<<< HEAD
+=======
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+>>>>>>> 5df42a326536d9184be0517f68b691737bf3a124
 # Autographx - Automated YearBook Generator
 
 ![img](https://i.ibb.co/1JW1s9H/autographx-2.png)
+
+---
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)  
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+---
 # Collecting data from students 📚
+
+## [Version 1 of Yearbooks](https://drive.google.com/drive/folders/1CRlQynZkcwm0FIGP911KRLKz4HxuCQ-G?usp=sharing)
+
 As this year and your degree comes to an end, let's reminisce our times together, so let's put it all in a yearbook!
 
 1. Create Google Drive folder, in that, please create a folder with  <namesurname> and in the folder add a text file <namesurname.txt> which should contain following four lines
@@ -17,7 +28,7 @@ Quote : Your Yearbook quote
 4. in the text file, write whatever you want to write for your friend! 
 5. If you want to write something for the whole class, add another <autogtaph_yourname.txt> in a <batch_year> folder, substituting the year with the current year. 
 
-# How to contribute 🤝
+# How to contribute 🤝 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 - Pick up any issue you think you can help with from things to do section (check if it exists in github issues tab, if it doesn't then create one)
 - Send a message on whatsapp group to check if someone's working on it. 
 - If no one's working on it, assign the issue to yourself
@@ -25,7 +36,7 @@ Quote : Your Yearbook quote
 - Once solved, raise a PR to the dev branch. 
 
 
-## Contributors ✨
+## Contributors ✨ 
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -54,4 +65,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+</br>
+This repository has been viewed by [![HitCount](http://hits.dwyl.com/meghanabhange/autographx.svg)](http://hits.dwyl.com/meghanabhange/autographx)!
 
