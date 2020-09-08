@@ -22,23 +22,21 @@
    {%for i in range(0, len)%} 
   <div class="column" style="padding-left:3%;"> 
  <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front" >
-      <img src="{{url_for('static',filename = autos[i]['flask_image']) }}" alt="Avatar" style="width:1200px;height:1200px;">
-    </div>
-    <div class="flip-card-back ">
-      <h1 class="para" style="text-align:center;">{{autos[i]['Name']}}</h1>
-      <p class="para2" style="text-align: center;" >{{autos[i]["Quote"]}}</p>
+      <div class="regular">
+    <div class="text ">
+      <h1  style="text-align:center;">{{autos[i]['Name']}}</h1>
+      <p  style="text-align: center;" >{{autos[i]["Quote"]}}</p>
        <a href="{{ url_for('index_func', name =  autos[i]['Name'] ) }}" target="_blank">
          <button class="btn">Autographs</button>
       </a>
     </div>
-  </div>
+  <div class="overlay" ></div>
+      <img style="width:1200px;height:1200px;" class="img" src="{{url_for('static',filename = autos[i]['flask_image']) }}" alt="Avatar" style="width:1200px;height:1200px;">
+    </div>
 </div> 
 </div>
 </div>
 </div>
-
 {%endfor%} 
   
 </ol> 
