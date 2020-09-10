@@ -147,6 +147,12 @@
   transition:  ease-in-out;
 }
 
+@keyframes load-in {
+  100% { opacity: 1; }
+}
+@keyframes load-out {
+  100% { opacity: 0; }
+}
 @media screen and (min-width: 767px) {
   .tall {
     grid-row-end: span 2;
