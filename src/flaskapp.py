@@ -1,5 +1,6 @@
 from utils import get_autos, split_paragraph, get_display_img
 from flask import request
+from flask import Markup
 
 # import autographx
 from flask import Flask, render_template
