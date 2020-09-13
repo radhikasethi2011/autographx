@@ -58,6 +58,7 @@
   transition: opacity 220ms ease-in-out;
 }
 .text > p {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 500%;
   line-height: 1.1;
