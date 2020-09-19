@@ -7,30 +7,38 @@
     <title>AutographX - YearBook</title> 
     <!--add links to style sheets and bootstrap-->
     <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/styles.css')}}" >
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
 
 </head> 
-<body class="main"> 
- <div class="cover" style="margin-bottom:5%;" >
-    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo" style="width:100%; "
+<body> 
+ <div class="cover" >
+    <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo" style="height:1500px; width:3050px;"
+
     
     > <br>
     </div>
   
-<ol> 
+
+<ol style="
+ margin-left:400px;
+
+"> 
 <!-- For loop logic of jinja template -->
    {%for i in range(0, len)%} 
-  <div class="column" style="padding-left:3%;"> 
+   
+  <div class="column"> 
  <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front" >
-      <img src="{{url_for('static',filename = autos[i]['flask_image']) }}" alt="Avatar" style="width:1200px;height:1200px;">
+      <img src="{{url_for('static',filename = autos[i]['Image'][0]) }}" alt="Avatar" style="width:650px;height:800px;">
+        <a href="{{ url_for('index_func', name =  autos[i]['Name'] ) }}" target="_blank"><button>{{ autos[i]["Name"] }}
     </div>
-    <div class="flip-card-back ">
-      <h1 class="para" style="text-align:center;">{{autos[i]['Name']}}</h1>
-      <p class="para2" style="text-align center;" >{{autos[i]["Quote"]}}</p>
-       <a href="{{ url_for('index_func', name =  autos[i]['Name'] ) }}" target="_blank">
-         <button class="btn">Autographs</button>
+    <div class="flip-card-back">
+      <p>{{autos[i]['Name']}}</p>
+      <h1>{{autos[i]["Quote"]}}</h1>
+      
+
       </a>
     </div>
   </div>

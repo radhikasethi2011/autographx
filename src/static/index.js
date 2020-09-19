@@ -1,4 +1,12 @@
-var card = document.querySelector('.card');
-card.addEventListener( 'click', function() {
-  card.classList.toggle('is-flipped');
-});
+
+
+function console(){
+  myvar =
+  alert ({autos[i]["Name"]});
+
+  var parsed= JSON.parse(myvar);
+  document.getElementById(parsed[0]['autographs']);
+
+    }
+
+
