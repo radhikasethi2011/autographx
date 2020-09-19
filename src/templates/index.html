@@ -7,16 +7,19 @@
     <title>AutographX - YearBook</title> 
     <!--add links to style sheets and bootstrap-->
     <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
 
 </head> 
 <body> 
  <div class="cover" >
     <img src = "{{url_for('static',filename = 'cover.png') }}" class = "logo" style="height:1500px; width:3050px;"
+
     
     > <br>
     </div>
   
+
 <ol style="
  margin-left:400px;
 
@@ -35,6 +38,7 @@
       <p>{{autos[i]['Name']}}</p>
       <h1>{{autos[i]["Quote"]}}</h1>
       
+
       </a>
     </div>
   </div>

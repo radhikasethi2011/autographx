@@ -105,5 +105,9 @@ def print_autographs(autographs, pdf):
         plt.close()
 
 
+
 autos = get_autos("YearbookENTC", download_image=False)
+
+autos = get_autos("YearbookENTC", download_image=True)
+
 autographs_topdf(autos)
