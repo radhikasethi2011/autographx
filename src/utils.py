@@ -97,7 +97,7 @@ def get_autos(
 
                 get_files_from_gdrive(yearbook_image, yearbook_image_filename)
             details["Image"] = yearbook_image_filename
-            details["flask_image"] = f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
+
             details["autographs"] = {}
         else:
             # print(f"something is wrong with {name}")
@@ -177,7 +177,9 @@ def extract_autographs_and_pname(filepath, name, x, df):
             pname = extract_name(x, df, l)
         pname = extract_full_name(df, str(x)[l + 10 : -4])
     except:
-        pname = f"{str(x)[l+10:-4]}\n"
+
+        pname = f"{str(x)[l+10:-4]}\nfind file at {str(x)}"
+
     return output, pname
 
 
