@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT ./src/flaskapp:app
+web: gunicorn ./src/flaskapp:app
