@@ -11,7 +11,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/34004739?v=4",
       "profile": "https://github.com/meghanabhange",
       "contributions": [
-        "ideas"
+        "ideas",
+        "code"
       ]
     },
     {
@@ -21,7 +22,8 @@
       "profile": "https://github.com/radhikasethi2011",
       "contributions": [
         "content",
-        "doc"
+        "doc",
+        "code"
       ]
     },
     {
@@ -85,6 +87,15 @@
       "profile": "https://github.com/tanvipardhi",
       "contributions": [
         "content"
+      ]
+    },
+    {
+      "login": "esh2112",
+      "name": "esh2112",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/63820916?v=4",
+      "profile": "https://github.com/esh2112",
+      "contributions": [
+        "code"
       ]
     }
   ],
