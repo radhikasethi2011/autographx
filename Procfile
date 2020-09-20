@@ -1,1 +1,1 @@
-web: gunicorn autographx.src.flaskapp:app
+web: gunicorn --pythonpath src flaskapp:app
