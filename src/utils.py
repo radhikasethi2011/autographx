@@ -162,12 +162,13 @@ def extract_autographs_and_pname(filepath, name, x, df):
         f = strip_emoji_and_dots(f)
         output = split_paragraph(f, 10)
     except:
+        output = "input error due to try block 1"
         try:
             f = docx2txt.process(x)
             f = strip_emoji_and_dots(f)
             output = split_paragraph(f, 10)
         except:
-            output = "Input Error"
+            output = "Input Error due to try block 2"
             # print(f"Input Error for {name}")
             # print(f"Input Error file name {str(x)}")
     try:
@@ -210,7 +211,7 @@ def extract_name(x, df, l):
 def check_for_txt_docx(x):
     if str(x)[-4:] == "docx":
         f = docx2txt.process(str(x))
-    else:
+    elif str(x)[-4:] == ".txt":
         f = open(x, "r").read()
     return f
 
