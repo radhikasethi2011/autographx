@@ -1,1 +1,1 @@
-web: gunicorn app:src/flaskapp
+web: gunicorn app:flaskapp
