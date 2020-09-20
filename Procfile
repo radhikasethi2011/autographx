@@ -1,1 +1,1 @@
-web: gunicorn src.flaskapp:app
+web: gunicorn autographx.src.flaskapp:app
