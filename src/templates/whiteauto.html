@@ -4,28 +4,21 @@
   <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Your Autographs</title> 
-<<<<<<< HEAD
    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/autosty.css') }}"> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet"> 
-=======
-
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styles.css') }}"> 
->>>>>>> ea296ac7341d939a7b5dbb31209d4dbdb2c19368
 
 </head>
-<body>
-<div class="cover" >
-    <img src = "{{url_for('static',filename = 'auto.png') }}" class = "logo" style="height:1500px; width:3050px;" > 
+<body class="sub">
+<div class="subcover" >
+    <img src = "{{url_for('static',filename = 'img/auto.png') }}" class = "logo" style="width: 100%;"> 
  </div>
 
-<div >
-
+<div>
       
    
 {%for i in range(0,len) %}
       {% if name in autos[i]['Name'] %}
             {% for x,y in autos[i]['autographs'].items() %}
-<<<<<<< HEAD
             <div class="container">
        <div class="column" style="padding-left:2.15%;">
         <div class="thought">
@@ -38,20 +31,10 @@
                   </div>
            </div>
                   </div>      
-=======
-
-                  {% if i!=0 %}
-                        <h3>{{ x }} </h3>
-                        <p> {{ y }} </p>
-                  {%endif%}      
-
->>>>>>> ea296ac7341d939a7b5dbb31209d4dbdb2c19368
             {%endfor%}      
       {%endif%}            
 {%endfor%}
 </div>
 
-
 </body>
 </html>
-

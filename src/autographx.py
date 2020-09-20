@@ -13,7 +13,6 @@ warnings.filterwarnings("ignore")
 
 def autographs_topdf(autos: list) -> None:
     """Takes autographs and converts them to pdfs
-
     Arguments:
         autographs {dict} -- Dict of name-autograph mapping
         name {str} -- name of the person who these autographs are for
@@ -105,9 +104,5 @@ def print_autographs(autographs, pdf):
         plt.close()
 
 
-
-autos = get_autos("YearbookENTC", download_image=False)
-
 autos = get_autos("YearbookENTC", download_image=True)
-
 autographs_topdf(autos)

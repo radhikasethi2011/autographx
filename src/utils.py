@@ -28,10 +28,8 @@ def strip_emoji_and_dots(text: str) -> str:
     """The files have a lot of emojies, and it causes errors. 
     Currently removing emojies and ... because they cause the 
     sentence to grow longer
-
     Args:
         text (str): input text
-
     Returns:
         str: de-emojised text
     """
@@ -52,7 +50,6 @@ def strip_emoji_and_dots(text: str) -> str:
 
 def get_files_from_gdrive(url: str, fname: str) -> None:
     """downloads file from gdrive
-
     Args:
         url (str): gdrive url
         fname (str): name of the file
@@ -68,12 +65,10 @@ def get_autos(
     download_image: bool = True,
 ) -> list:
     """Returns a list of dictionaries of autographs for each person.
-
     Args:
         filepath (str, optional): Dir path to all the autographs. Defaults to "YearbookENTC".
         details_file (str, optional): details for name and quotes and photos Defaults to "docs/details.csv".
         download_image (bool, optional): do you want to download the images again. Defaults to True.
-
     Returns:
         dict: autos dict
     """
@@ -97,7 +92,7 @@ def get_autos(
 
                 get_files_from_gdrive(yearbook_image, yearbook_image_filename)
             details["Image"] = yearbook_image_filename
-
+            details["flask_image"] = f"{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
             details["autographs"] = {}
         else:
             # print(f"something is wrong with {name}")
@@ -121,11 +116,9 @@ def get_autos(
 
 def extract_quote(df: pd.DataFrame, name: str) -> str:
     """Extracts the quote of the person from dataframe
-
     Args:
         df (pd.DataFrame): details dataframe
         name (str): the person's name who's quote you're querying
-
     Returns:
         str: the yearbook quote of the person
     """
@@ -134,11 +127,9 @@ def extract_quote(df: pd.DataFrame, name: str) -> str:
 
 def extract_full_name(df: str, name: str) -> str:
     """Based on the queryname returns full name with space.
-
     Args:
         df (pd.DataFrame): details dataframe
         name (str): the person's name who's quote you're querying
-
     Returns:
         str: the yearbook quote of the person
     """
@@ -152,7 +143,6 @@ def extract_autographs_and_pname(filepath, name, x, df):
         name : queryname of the person
         x : Pathlib file to the file in concern
         df : details dataframe
-
     Returns:
         output : the autogaph of person
         pname : name of the person who wrote that autograph
@@ -177,20 +167,16 @@ def extract_autographs_and_pname(filepath, name, x, df):
             pname = extract_name(x, df, l)
         pname = extract_full_name(df, str(x)[l + 10 : -4])
     except:
-
-        pname = f"{str(x)[l+10:-4]}\nfind file at {str(x)}"
-
+        pname = f"{str(x)[l+10:-4]}\n"
     return output, pname
 
 
 def extract_name(x, df, l):
     """[summary]
-
     Args:
         x : Pathlib file to the file in concern
         df : details datafame
         l : length of the string till "autograph" begins
-
     Returns:
         str: name of the peron (firstname lastname)
     """
@@ -290,10 +276,8 @@ def add_quote(autos, plt, sno):
 
 def split_paragraph(para, n):
     """Returns a string that's sliced after n words.
-
       Input -> string, n->after n words, adding a \n.
   """
     res = para.split()
     ans = [" ".join(res[i : i + n]) for i in range(0, len(res), n)]
     return "\n".join(ans)
-
