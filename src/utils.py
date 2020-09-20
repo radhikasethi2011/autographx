@@ -14,6 +14,16 @@ import docx2txt
 import emoji
 
 
+def clean_text(text: str) ->str:
+    """
+    clean the non ascii characters from the complete autograph text
+    remove og's quote & name
+    """
+    string_with_nonASCII = text
+    encoded_string = string_with_nonASCII.encode("ascii", "ignore")
+    decode_string = encoded_string.decode()
+    return decode_string
+
 def strip_emoji_and_dots(text: str) -> str:
     """The files have a lot of emojies, and it causes errors. 
     Currently removing emojies and ... because they cause the 
@@ -32,9 +42,12 @@ def strip_emoji_and_dots(text: str) -> str:
     new_text = new_text.replace(" .", ". ")
     new_text = new_text.replace("\ufeff", "")
     new_text = new_text.replace("\n", " ")
-
-
-    return new_text
+    new_text = new_text.replace("'", "")
+    new_text = new_text.replace(" '", "")
+    new_text = new_text.replace("' ", "")
+    new_text = new_text.replace(" ' ", "")
+    new_text1 = clean_text(new_text)
+    return new_text1
 
 
 def get_files_from_gdrive(url: str, fname: str) -> None:
@@ -81,6 +94,7 @@ def get_autos(
             yearbook_image = df.loc[name]["Year Book Image"]
             yearbook_image_filename = f"src/static/{df.loc[name]['filename of your image (With extension .jpg or .png)']}"
             if download_image:
+
                 get_files_from_gdrive(yearbook_image, yearbook_image_filename)
             details["Image"] = yearbook_image_filename
 
@@ -90,13 +104,15 @@ def get_autos(
             continue
 
         for x in f.iterdir():
-
-            path_to_persons_files = f"{str(filepath)}/{name}/{name}"
+           
+            path_to_persons_files = f"{str(filepath)}\{name}\{name}"
             if not (str(x) == f"{path_to_persons_files}.txt") and not (
                 str(x) == f"{path_to_persons_files}.jpg"
                 or str(x) == f"{path_to_persons_files}.png"
             ):
                 output, pname = extract_autographs_and_pname(filepath, name, x, df)
+                #if()
+          
 
                 details["autographs"][pname] = output
         autos.append(details)
@@ -146,12 +162,13 @@ def extract_autographs_and_pname(filepath, name, x, df):
         f = strip_emoji_and_dots(f)
         output = split_paragraph(f, 10)
     except:
+        output = "input error due to try block 1"
         try:
             f = docx2txt.process(x)
             f = strip_emoji_and_dots(f)
             output = split_paragraph(f, 10)
         except:
-            output = "Input Error"
+            output = "Input Error due to try block 2"
             # print(f"Input Error for {name}")
             # print(f"Input Error file name {str(x)}")
     try:
@@ -183,13 +200,20 @@ def extract_name(x, df, l):
         pname = extract_full_name(df, str(x)[l + 10 : -9])
     elif str(x)[-4:] == "docx":
         pname = extract_full_name(df, str(x)[l + 10 : -5])
+    elif str(x)[-4:] == "gdoc":
+        pname = extract_full_name(df, str(x)[l + 10 : -5])
+    elif str(x)[-9:] == ".txt.gdoc":
+        pname = extract_full_name(df, str(x)[l + 10 : -9])
+    elif str(x)[-5:] == "..txt":    
+        pname = extract_full_name(df, str(x)[l + 10 : -5])
+    
     return pname
 
 
 def check_for_txt_docx(x):
     if str(x)[-4:] == "docx":
         f = docx2txt.process(str(x))
-    else:
+    elif str(x)[-4:] == ".txt":
         f = open(x, "r").read()
     return f
 
