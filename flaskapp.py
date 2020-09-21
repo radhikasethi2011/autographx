@@ -11,7 +11,7 @@ from flask import Flask, render_template
 
 
 app = Flask(__name__)
-#utos = get_autos("YearbookENTC", download_image=False)
+#autos = get_autos("YearbookENTC", download_image=False)
 
 autos = get_autos("YearbookENTC", download_image=False)
 
