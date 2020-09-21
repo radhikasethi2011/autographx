@@ -10,8 +10,8 @@ from flask import Flask, render_template
 #...     print(x, " : ", y)
 
 
-
 app = Flask(__name__)
+
 
 
 @app.route("/")
@@ -25,5 +25,6 @@ def index_func(name):
     return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
 if __name__ == "__main__":
+    autos = []
     autos = get_autos("YearbookENTC", download_image=False)
     app.run(use_reloader=True, debug=True)
