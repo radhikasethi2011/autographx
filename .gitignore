@@ -3,12 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 imgdata/
-static/pranjaliphalke
-static/*.jpg
-static/*.png
-static/*.jpeg
-static/pranjaliphalke
-static/img
 .vscode/
 # C extensions
 *.so
