@@ -8,7 +8,7 @@ from flask import Flask, render_template
 
 #for x,y in autos[0]['autographs'].items():  to print name : autograph 
 #...     print(x, " : ", y)
-autos = []
+
 
 app = Flask(__name__)
 
