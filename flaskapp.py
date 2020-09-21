@@ -8,7 +8,7 @@ from flask import Flask, render_template
 
 #for x,y in autos[0]['autographs'].items():  to print name : autograph 
 #...     print(x, " : ", y)
-
+autos = []
 
 app = Flask(__name__)
 
@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
+    
     return render_template("index.html", len=len(autos), autos=autos)
 
 @app.route("/autographs/<string:name>")
@@ -25,6 +26,6 @@ def index_func(name):
     return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
 if __name__ == "__main__":
-    autos = []
+    
     autos = get_autos("YearbookENTC", download_image=False)
     app.run(use_reloader=True, debug=True)
