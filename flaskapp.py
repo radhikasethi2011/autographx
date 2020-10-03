@@ -13,7 +13,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 #auutos = get_autos("YearbookENTC", download_image=False)
 
-autos = get_autos("YearbookENTC", download_image=False)
+#autos = get_autos("YearbookENTC", download_image=False)
 
 @app.route("/")
 def homepage():
@@ -27,6 +27,7 @@ def index_func(name):
     
     return render_template("whiteauto.html", len=len(autos), autos=autos, name=name) 
 
-
-app.run(use_reloader=True, debug=True)
+if __name__ == "__main__":
+    autos = get_autos("YearbookENTC", download_image=False)
+    app.run(use_reloader=True, debug=True)
 
