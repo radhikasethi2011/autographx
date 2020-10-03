@@ -4,8 +4,6 @@ __pycache__/
 *$py.class
 imgdata/
 .vscode/
-YearbookENTC/
-
 # C extensions
 *.so
 # Autographx Specific
