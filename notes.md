@@ -3,3 +3,5 @@
 * use streamlit 
 * some graph - something fun to show on everyone's page - a graph on affection? 
 * A tweet-like UI would be good 
+* make use of [sprites](https://github.com/yurkth/sprator)?
+
